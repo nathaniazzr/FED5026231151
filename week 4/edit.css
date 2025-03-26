@@ -1,158 +1,204 @@
-.sidebar .logo {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start; /* Geser konten ke kiri */
-    gap: 10px; /* Jarak antara gambar dan teks */
-    font-size: 20px;
-    text-align: center;
-    font-weight: bold;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-.sidebar .logo .profile-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%; /* Membuat gambar berbentuk bulat */
-    object-fit: cover;
-    margin-left: 30px; /* Geser gambar lebih ke kiri */
-}
-.sidebar .logo .profile-text {
-    color: white;
-    font-size: 16px;
-}
 
-.sidebar {
-    width: 250px;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background: #0d47a1;
-    color: white;
-    padding-top: 20px;
-    transition: 0.3s;
-}
-.sidebar a {
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    display: block;
-    transition: 0.3s;
-}
-.sidebar a:hover {
-    background: #495057;
-}
-.sidebar .active {
-    background: #007bff;
-}
-.sidebar .logo {
-    font-size: 20px;
-    text-align: center;
-    font-weight: bold;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-.content {
-    margin-left: 270px; /* Tambahkan jarak lebih besar */
-    padding: 20px;
-}
+body {
+    font-family: 'Poppins', sans-serif;
+    display: fixed;
+    transition: all 0.3s ease;
+    }
+    /* Sidebar Styles */
+    .sidebar {
+        width: 250px;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background: #325585;
+        color: white;
+        padding-top: 20px;
+        transition: width 0.3s;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Kasih raung ke bawah */
+    }
 
-/* Styling untuk konten utama */
-.content {
-    font-family: 'Poppins', sans-serif; /* Tentukan font utama */
-    color: #333; /* Warna teks */
-    line-height: 1.6; /* Jarak antar baris */
-    padding: 20px; /* Jarak dalam konten */
-}
+    .sidebar .logo .profile-img {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-left: 1px;
+        margin-top: 25px;
+    }
+    
+    .sidebar .logo {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 5px; /* Kasih jarak antara logo dan tulisan*/
+        font-size: 20px;
+        text-align: center;
+        font-weight: bold;
+        padding: 10px 0;
+        border-bottom: 1px solid grey;
+    }
+    
+  
+    
+    .sidebar .logo {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 15px;
+    }
 
-/* Styling untuk judul di dalam konten */
-.content h2 {
-    font-family: 'Poppins', sans-serif; /* Ganti font menjadi Poppins */
-    font-size: 28px; /* Ukuran font judul */
-    color: #0d47a1; /* Warna biru tua */
-    margin-bottom: 10px; /* Jarak bawah judul */
-    font-weight: bold; /* Tambahkan properti untuk membuat teks bold */
-}
+    .sidebar .logo .profile-text {
+        color: white;
+        font-size: 16px;
+    }
+
+    .sidebar .logo .profile-email {
+        color: white;
+        font-size: 14px;
+        display: block;
+    }
+
+    .sidebar .logo .profile-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* Menjadikan teks sejajar ke kiri */
+        margin-left: 10px; /* Memberi jarak antara gambar dan teks */
+        margin-top: 25px;
+    }
+
+    
+    .sidebar a {
+        color: white;
+        text-decoration: none;
+        padding: 10px 20px;
+        display: block;
+        transition: background 0.3s;
+        margin: 5px 10px; 
+        border-radius: 12px; 
+    }
+    
+    .sidebar a:hover {
+        background: #767c82;
+    }
+    
+    .sidebar .active {
+        background: #135181;
+        color: white; 
+        border-radius: 12px; 
+        transition: background 0.3s, margin 0.3s; /* Smooth transition */
+    }
+    
+    /* Toggle Button Styles */
+    
+    
+    .toggle-btn {
+        position: absolute;
+        top: 20px;
+        font-size: 24px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: white;
+        transition: left 0.3s;
+    }
+    .toggle-checkbox {
+        display: none;
+    }
+    .content {
+        margin-left: 250px; /* Awalnya menyesuaikan sidebar */
+        padding: 20px;
+        width: calc(100% - 250px);
+        transition: all 0.3s ease;
+    }
+
+    .close-btn {
+        left: 200px;
+        top: 3px;
+    }
+    
+    .open-btn {
+        left: 4px;
+        top: 3px;
+        display: block;
+        background-color: #163f7d;
+        color: white;
+        border: none;
+        padding: 5px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    
+  
+    .content {
+        margin-left: 270px;
+        margin-top: 30px;
+        padding: 20px;
+        transition: margin-left 0.3s;
+    }
+    
+    
+    .toggle-checkbox:checked ~ .sidebar {
+        width: 0;
+    }
+    
+ 
+    
+    .toggle-checkbox:not(:checked) ~ .open-btn {
+        display: none;
+    }
+    
+    .toggle-checkbox:checked ~ .content {
+        margin-left: 20px;
+    }
+    .toggle-checkbox:checked ~ .sidebar .close-btn {
+        display: none;
+    }
+    
+    .toggle-checkbox:checked ~ .open-btn {
+        display: block;
+    }
+   
+    .toggle-checkbox:checked ~ .sidebar .text-danger {
+    display: none;
+    }
 
 
-/* Styling untuk paragraf di dalam konten */
-.content p {
-    font-family: 'Poppins', sans-serif;  /* Ganti dengan font yang Anda inginkan */
-    font-size: 20px; /* Ukuran font */
-    color: #333; /* Warna teks */
-    font-weight: normal; /* Ketebalan font */
-    line-height: 1.5; /* Jarak antar baris */
-}
-
- /* Styling Sidebar */
-
-        /* Toggle Button */
-        #toggleSidebar {
-            position: fixed; /* Tetap di posisi tetap */
-            top: 10px; /* Jarak dari atas */
-            left: 10px; /* Jarak dari kiri */
-            font-size: 20px;
-            background: #0d47a1; /* Warna latar belakang */
-            border: none;
-            color: white;
-            cursor: pointer;
-            z-index: 10; /* Pastikan tombol berada di atas elemen lainnya */
-            border-radius: 50%; /* Membuat tombol berbentuk bulat */
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: left 0.3s; /* Animasi saat tombol bergeser */
+    @media (max-width: 768px) {
+        .sidebar {
+            width: 0;
         }
+        .close-btn {
+            left: 0;
+        }
+        .content {
+            margin-left: 0;
+        }
+    }
 
-        .profile-subtext {
-            display: block; /* Pastikan teks kecil tampil di bawah */
-            font-size: 12px; /* Ukuran teks kecil */
-            color: rgb(234, 234, 234); /* Warna teks */
-            margin-top: 0; /* Hilangkan jarak atas jika ada */
-            text-align: center; /* Pusatkan teks */
-        }
-        
-        .row.mt-3 {
-            display: flex;
-            justify-content: flex-start; /* Geser ke kanan dengan jarak */
-            margin-top: 20px; 
-            margin-left: 280px; /* Tambahkan jarak tambahan jika diperlukan */
-        }
+    .toggle-checkbox:checked ~ .sidebar .close-btn {
+        display: none;
+    }
+    
+    .toggle-checkbox:checked ~ .open-btn {
+        display: block;
+    }
 
-        .card h5 {
-            font-family: 'Poppins', sans-serif; /* Ganti font menjadi Poppins */
-            font-size: 16px; /* Ukuran font untuk judul kecil */
-            font-weight: bold; /* Tambahkan ketebalan font */
-            color: #a69e9e; /* Warna teks */
-            text-align: left;
-        }
-        
-        .card h3 {
-            font-family: 'Poppins', sans-serif; /* Ganti font menjadi Poppins */
-            font-size: 24px; /* Ukuran font untuk angka besar */
-            font-weight: bold; /* Tambahkan ketebalan font */
-            color: #a69e9e; /* Warna teks */
-            text-align: left;
-        }
-
-
-        .table {
-            width: 80%; /* Atur lebar tabel menjadi 80% dari elemen induknya */
-            margin: 0 auto; /* Pusatkan tabel */
-            font-size: 14px; /* Kecilkan ukuran font */
-        }
-        
-        .table th, .table td {
-            padding: 8px; /* Kurangi padding untuk mengecilkan tabel */
-            text-align: center; /* Pusatkan teks di dalam tabel */
-        }
-        
-        .table-striped tbody tr:nth-of-type(odd) {
-            background-color: #f9f9f9; /* Warna latar belakang untuk baris ganjil */
-        }
-        
-        .table-striped tbody tr:nth-of-type(even) {
-            background-color: #ffffff; /* Warna latar belakang untuk baris genap */
-        }
+    .toggle-checkbox:checked ~ .sidebar .close-btn {
+        display: none;
+    }
+    
+    .toggle-checkbox:checked ~ .open-btn {
+        display: block;
+    }
+    .toggle-checkbox:checked ~ .sidebar .close-btn {
+        display: none;
+    }
+    
+    .toggle-checkbox:checked ~ .open-btn {
+        display: block;
+    }
+    
